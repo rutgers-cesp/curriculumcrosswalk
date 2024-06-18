@@ -1,0 +1,274 @@
+[
+    {
+        "title": "CMU CS Academy: Exploring Programming with Python",
+        "fundamentals": {
+            "syntax": "1.1",
+            "debugging": "1.1",
+            "conditionals": "3.1, 3.3",
+            "loops": "4.2",
+            "nested": "3.1",
+            "functions": "1.1, 1.4, 2.4",
+            "variables": "2.2, 2.4"
+        },
+        "design": {
+            "webdesign": null,
+            "producing": "1.1-1.6",
+            "animation": "3.2, 3.4",
+            "interactivity": "2.1-2.5",
+            "gamedesign": null
+        },
+        "applications": {
+            "storytelling": null,
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": null,
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": null
+        }
+    },
+    {
+        "title": "CodeHS: Computer Science Explorations 1",
+        "fundamentals": {
+            "syntax": "1.1, 1.3-1.5, 4.1",
+            "debugging": "1.2-1.3, 4.2",
+            "conditionals": "1.4-1.5, 2.1",
+            "loops": "1.4, 2.1",
+            "nested": "2.1",
+            "functions": "2.2, 4.3-4.4",
+            "variables": "4.4"
+        },
+        "design": {
+            "webdesign": null,
+            "producing": null,
+            "animation": null,
+            "interactivity": null,
+            "gamedesign": null
+        },
+        "applications": {
+            "storytelling": "4.1, 4.3",
+            "data": null,
+            "career": "3.7",
+            "impact": "3.1"
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": "3.3",
+            "software": "3.2",
+            "cloud": "3.4-3.5",
+            "history": "3.1, 3.7",
+            "ethics": "3.6, 5.7",
+            "literacy": "Unit 5"
+        }
+    },
+    {
+        "title": "Code.org: Computer Science Discoveries",
+        "fundamentals": {
+            "syntax": "Units 2-3",
+            "debugging": "Units 2-3",
+            "conditionals": "Units 2-3",
+            "loops": "Units 2-3",
+            "nested": "Units 2-3",
+            "functions": "Units 2-3",
+            "variables": "Units 2-3"
+        },
+        "design": {
+            "webdesign": "2.1-2.4, 2.6. 2.9",
+            "producing": null,
+            "animation": null,
+            "interactivity": null,
+            "gamedesign": null
+        },
+        "applications": {
+            "storytelling": "Unit 5",
+            "data": "Unit 5",
+            "career": "Covered Throughout",
+            "impact": null
+        },
+        "concepts": {
+            "ai": "7.1-7.20",
+            "hardware": "1.2",
+            "software": null,
+            "cloud": "2.5",
+            "history": null,
+            "ethics": "Units 5-7",
+            "literacy": "2.8"
+        }
+    },
+    {
+        "title": "Harvard Graduate School of Education: Creative Computing Curriculum",
+        "fundamentals": {
+            "syntax": "1",
+            "debugging": "1-5",
+            "conditionals": "4",
+            "loops": "2",
+            "nested": null,
+            "functions": "3",
+            "variables": "4"
+        },
+        "design": {
+            "webdesign": null,
+            "producing": "2",
+            "animation": "2",
+            "interactivity": null,
+            "gamedesign": "5"
+        },
+        "applications": {
+            "storytelling": null,
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": "5",
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": null
+        }
+    },
+    {
+        "title": "Google CS First",
+        "fundamentals": {
+            "syntax": null,
+            "debugging": null,
+            "conditionals": "",
+            "loops": "",
+            "nested": "",
+            "functions": "",
+            "variables": ""
+        },
+        "design": {
+            "webdesign": null,
+            "producing": null,
+            "animation": "",
+            "interactivity": "",
+            "gamedesign": ""
+        },
+        "applications": {
+            "storytelling": null,
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": null,
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": null
+        }
+    },
+    {
+        "title": "Project STEM: Computer Science Explorations 1",
+        "fundamentals": {
+            "syntax": "1",
+            "debugging": "3, 4",
+            "conditionals": "3, 4",
+            "loops": "2",
+            "nested": null,
+            "functions": "6",
+            "variables": "5"
+        },
+        "design": {
+            "webdesign": null,
+            "producing": "6",
+            "animation": "1-2",
+            "interactivity": "1, 5",
+            "gamedesign": "3, 4"
+        },
+        "applications": {
+            "storytelling": "2, 5",
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": "7",
+            "hardware": null,
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": "0"
+        }
+    },
+    {
+        "title": "Tynker: Programming 201",
+        "fundamentals": {
+            "syntax": "1",
+            "debugging": null,
+            "conditionals": "7",
+            "loops": "1, 2",
+            "nested": null,
+            "functions": "4",
+            "variables": "16"
+        },
+        "design": {
+            "webdesign": null,
+            "producing": "2, 3",
+            "animation": "2, 3, 10",
+            "interactivity": "6-7, 11, 17",
+            "gamedesign": "9"
+        },
+        "applications": {
+            "storytelling": "5",
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": null,
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": null
+        }
+    },
+    {
+        "title": "Microsoft MakeCode: Introduction to CS",
+        "fundamentals": {
+            "syntax": null,
+            "debugging": null,
+            "conditionals": "4, 6, 8",
+            "loops": "5, 6",
+            "nested": null,
+            "functions": "2, 6",
+            "variables": "3, 6 "
+        },
+        "design": {
+            "webdesign": null,
+            "producing": null,
+            "animation": null,
+            "interactivity": null,
+            "gamedesign": null
+        },
+        "applications": {
+            "storytelling": null,
+            "data": null,
+            "career": null,
+            "impact": null
+        },
+        "concepts": {
+            "ai": null,
+            "hardware": "1-2, 6, 7, 10",
+            "software": null,
+            "cloud": null,
+            "history": null,
+            "ethics": null,
+            "literacy": null
+        }
+    }
+]

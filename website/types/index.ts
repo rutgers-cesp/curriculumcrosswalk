@@ -19,7 +19,9 @@ export interface CourseReview {
     date_modified: string
     spotlight: string
     expert_take: string
+    course_url: string
     image_url: string
+    summary_url: string
 }
 
 export interface CourseDirectory {

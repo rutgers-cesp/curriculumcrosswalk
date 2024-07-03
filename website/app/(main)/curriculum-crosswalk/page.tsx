@@ -1,22 +1,28 @@
 import { readFile } from 'fs/promises'
-import CrosswalkGrid from './components/CrosswalkGrid'
+import { Metadata } from 'next'
+import ToggleGrid from './components/ToggleGrid'
+
+export const metadata: Metadata = {
+    title: 'CS Curriculum Crosswalk | Crosswalk',
+    description: 'Rugters University Computer Science Curriculum Crosswalk',
+}
 
 export default async function Page() {
     const res = await readFile('public/data/curriculum_crosswalk.json', 'utf8')
     const data = JSON.parse(res)
-
     return (
         <main className="flex flex-1 flex-col gap-3 p-4 lg:gap-6 lg:p-6">
             <div className="">
-                <h1 className="text-lg font-semibold md:text-2xl">Curriculum Crosswalk</h1>
-                <p className="mt-3 text-sm text-muted-foreground">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magni amet itaque excepturi culpa
-                    minima nobis officiis eligendi optio beatae rem repellendus velit tenetur, ea cum veritatis?
-                    Quaerat, hic id.
+                <div>
+                    <h1 className="text-lg font-semibold md:text-2xl">Curriculum Crosswalk</h1>
+                </div>
+                <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+                    Research and compare computer science courses.
                 </p>
             </div>
+
             <div>
-                <CrosswalkGrid courses={data}/>
+                <ToggleGrid courses={data} />
             </div>
         </main>
     )

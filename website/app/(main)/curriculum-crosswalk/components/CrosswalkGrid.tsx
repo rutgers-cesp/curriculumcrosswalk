@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import { CourseReview } from '@/types'
 import { BookOpenText } from 'lucide-react'
 import Image from 'next/image'
+import { ToggleState } from './ToggleGrid'
 
 function CourseCardDescription({
     suggestedGrades,
@@ -45,7 +46,17 @@ function CourseCardImage({ src, alt }: { src: string; alt: string }) {
     )
 }
 
-export default function CrosswalkGrid({ courses }: { courses: CourseReview[] }) {
+export default function CrosswalkGrid({
+    toggleState,
+    handleToggleState,
+    compareMode,
+    courses,
+}: {
+    toggleState: ToggleState
+    handleToggleState: (updated: ToggleState) => void
+    compareMode: boolean
+    courses: CourseReview[]
+}) {
     const courseCards = courses.map((course) => {
         return {
             name: course.title,
@@ -66,8 +77,16 @@ export default function CrosswalkGrid({ courses }: { courses: CourseReview[] }) 
 
     return (
         <BentoGrid>
-            {courseCards.map((card) => {
-                return <BentoCard {...card} />
+            {courseCards.map((card, id) => {
+                return (
+                    <BentoCard
+                        key={id}
+                        compareMode={compareMode}
+                        checked={toggleState[card.name]}
+                        handleToggle={() => handleToggleState({ ...toggleState, [card.name]: !toggleState[card.name] })}
+                        {...card}
+                    />
+                )
             })}
         </BentoGrid>
     )

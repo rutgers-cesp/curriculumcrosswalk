@@ -23,10 +23,21 @@ const pages = [
     },
 ]
 
+function determineNavHighlight(href: string, pathname: string): boolean {
+    if (href === pathname) {
+        return true
+    }
+    if (pathname.startsWith(href) && href !== '/') {
+        return true
+    }
+    return false
+}
+
 export default function Navbar() {
     const pathname = usePathname()
+
     return (
-        <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6S">
+        <header className="md:px-6S sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4">
             <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-8 md:text-sm lg:gap-10">
                 <Link href="/" className="flex items-center gap-2 text-lg font-semibold md:text-base">
                     <Logo />
@@ -37,7 +48,7 @@ export default function Navbar() {
                         href={href}
                         key={title}
                         className={cn(
-                            href === pathname ? 'text-foreground' : 'text-muted-foreground',
+                            determineNavHighlight(href, pathname) ? 'text-foreground' : 'text-muted-foreground',
                             'transition-colors hover:text-foreground',
                         )}
                     >
@@ -52,7 +63,7 @@ export default function Navbar() {
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left">
+                <SheetContent className="overflow-y-scroll" side="left">
                     <nav className="grid gap-6 text-lg font-medium">
                         <Link href="#" className="flex items-center gap-2 text-lg font-semibold">
                             <Logo /> <span className="sr-only">Rutgers University</span>
@@ -62,8 +73,8 @@ export default function Navbar() {
                                 href={href}
                                 key={title}
                                 className={cn(
-                                    href === pathname ? 'text-foreground' : 'text-muted-foreground',
-                                    'text-muted-foreground transition-colors hover:text-foreground',
+                                    determineNavHighlight(href, pathname) ? 'text-foreground' : 'text-muted-foreground',
+                                    'transition-colors hover:text-foreground',
                                 )}
                             >
                                 {title}

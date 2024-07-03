@@ -10,8 +10,8 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
     }, [error])
 
     return (
-        <div className="flex h-screen w-full items-center justify-center">
-            <h2>{error.message}</h2>
+        <div className="flex h-screen w-full flex-col items-center justify-center gap-6">
+            <h2 className="text-center text-xl font-semibold">{error.message}</h2>
             <Button onClick={() => reset()}>Try again</Button>
         </div>
     )

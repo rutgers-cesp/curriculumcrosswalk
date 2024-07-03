@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { ReactNode } from 'react'
@@ -15,26 +16,43 @@ const BentoCard = ({
     description,
     href,
     cta,
+    compareMode,
+    checked,
+    handleToggle,
 }: {
-    name: ReactNode
+    name: string
     className: string
     background: ReactNode
     Icon: any
     description: ReactNode
     href: string
     cta: string
+    compareMode: boolean
+    checked: boolean
+    handleToggle: () => void
 }) => (
     <div
-        key={name}
         className={cn(
             'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl',
             // light styles
             'bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
             // dark styles
-            'transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]',
+            'relative transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]',
             className,
         )}
     >
+        {compareMode && (
+            <>
+                <label
+                    onClick={handleToggle}
+                    htmlFor={name}
+                    className={cn(checked && 'bg-green-200/20', 'absolute z-10 h-full w-full')}
+                ></label>
+                <div className="absolute right-6 top-6 z-20">
+                    <Checkbox checked={checked} id={name} />
+                </div>
+            </>
+        )}
         <div>{background}</div>
         <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
             <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />

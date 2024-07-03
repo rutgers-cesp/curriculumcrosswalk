@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { useEffect } from 'react'
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -9,9 +10,9 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
     }, [error])
 
     return (
-        <div>
-            <h2>{error.message}</h2>
-            <button onClick={() => reset()}>Try again</button>
+        <div className="flex h-screen w-full flex-col items-center justify-center gap-6">
+            <h2 className="text-center text-xl font-semibold">{error.message}</h2>
+            <Button onClick={() => reset()}>Try again</Button>
         </div>
     )
 }

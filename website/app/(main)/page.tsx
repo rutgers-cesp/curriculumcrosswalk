@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Rugters University Computer Science Curriculum Crosswalk',
 }
 
-export function CurriculumCrosswalkCTA() {
+function CurriculumCrosswalkCTA() {
     return (
         <Alert className="w-2xl bg-red-50">
             <Rocket className="h-4 w-4 !text-red-600" />

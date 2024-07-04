@@ -2,6 +2,7 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { CourseReview } from '@/types'
 import { readFile } from 'fs/promises'
 import { redirect } from 'next/navigation'
+import path from 'path'
 import CompareCard from './components/CompareCard'
 
 export default async function Page({
@@ -9,7 +10,9 @@ export default async function Page({
 }: {
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
-    const res = await readFile('public/data/curriculum_crosswalk.json', 'utf8')
+    console.log(process.cwd(), 'DAREN TEST')
+    const pathname = path.join(process.cwd(), 'public/data/curriculum_crosswalk.json')
+    const res = await readFile(pathname, 'utf8')
     const data: CourseReview[] = JSON.parse(res)
 
     const selected = searchParams.selected

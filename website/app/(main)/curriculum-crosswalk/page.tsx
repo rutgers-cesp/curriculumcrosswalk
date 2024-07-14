@@ -12,12 +12,12 @@ export default async function Page() {
     const data = JSON.parse(res)
     return (
         <main className="flex flex-1 flex-col gap-3 p-4 lg:gap-6 lg:p-6">
-            <div className="">
+            <div className="mb-3 mt-6">
                 <div>
-                    <h1 className="text-lg font-semibold md:text-2xl">Curriculum Crosswalk</h1>
+                    <h1 className="text-2xl font-semibold">Curriculum Crosswalk</h1>
                 </div>
                 <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-                    Research and compare computer science courses.
+                    Research and compare computer science curricula for introductory middle school courses.
                 </p>
             </div>
 

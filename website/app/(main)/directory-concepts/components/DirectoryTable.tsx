@@ -68,7 +68,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
         return (
             <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold underline">{sectionTitle} (alt)</h2>
+                    <h2 className="text-xl font-semibold underline">{sectionTitle} </h2>
                     <Toggle variant={'outline'} pressed={booleans} onPressedChange={() => setBooleans((prev) => !prev)}>
                         More Info
                     </Toggle>
@@ -89,7 +89,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                             const sectionData = rows[sectionTitle]
                             return (
                                 <TableRow key={id}>
-                                    <TableCell className="w-fit text-lg font-medium">{sectionTitle}</TableCell>
+                                    <TableCell className="w-64 text-lg font-medium">{sectionTitle}</TableCell>
                                     {sectionData.map((data, idx) => (
                                         <TableCell key={idx} className="font-medium">
                                             <div className="mx-auto w-fit">{data === null || <CheckMark />}</div>
@@ -129,7 +129,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                         const sectionData = rows[sectionTitle]
                         return (
                             <TableRow key={id}>
-                                <TableCell className="w-fit text-lg font-medium">{sectionTitle}</TableCell>
+                                <TableCell className="w-64 text-lg font-medium">{sectionTitle}</TableCell>
                                 {sectionData.map((data, idx) => {
                                     if (idx === 4) {
                                         return (

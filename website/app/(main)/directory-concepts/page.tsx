@@ -44,8 +44,8 @@ export default async function Page() {
 
     return (
         <main className="flex flex-1 flex-col gap-3 p-4 lg:gap-6 lg:p-6">
-            <div className="mb-6">
-                <h1 className="text-lg font-semibold md:text-2xl">Directory of Concepts</h1>
+            <div className="mb-3 mt-6">
+                <h1 className="text-2xl font-semibold">Directory of Concepts</h1>
                 <p className="mt-3 text-sm text-muted-foreground">
                     <span className="font-medium">Note: </span> The location where concepts are first introduced is
                     included in the directory below. Note that in some instances, concepts may be referenced or

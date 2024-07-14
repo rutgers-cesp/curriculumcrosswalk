@@ -1,11 +1,12 @@
 import { BentoCard, BentoGrid } from '@/components/magicui/bento-grid'
+import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { CourseReview } from '@/types'
-import { BookOpenText } from 'lucide-react'
+import { BookOpenText, Clock, DollarSign, School } from 'lucide-react'
 import Image from 'next/image'
 import { ToggleState } from './ToggleGrid'
 
-function CourseCardDescription({
+export function CourseCardDescription({
     suggestedGrades,
     totalHours,
     price,
@@ -15,16 +16,19 @@ function CourseCardDescription({
     price: string
 }) {
     return (
-        <div>
-            <p className="max-w-lg text-neutral-600">
-                <span className="text-neutral-400">Suggested Grades:</span> {suggestedGrades}.
-            </p>
-            <p className="max-w-lg text-neutral-600">
-                <span className="text-neutral-400">Total Hours:</span> {totalHours}.
-            </p>
-            <p className="max-w-lg text-neutral-600">
-                <span className="text-neutral-400">Price:</span> {price}
-            </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+            <Badge variant="secondary" className="py-1">
+                <School className="mr-3 h-4 w-4" />
+                Suggested for {suggestedGrades} Grade
+            </Badge>
+            <Badge variant="secondary" className="py-1">
+                <Clock className="mr-3 h-4 w-4" />
+                {totalHours} hours
+            </Badge>
+            <Badge variant="secondary" className="py-1">
+                <DollarSign className="mr-3 h-4 w-4" />
+                {price}
+            </Badge>
         </div>
     )
 }
@@ -35,9 +39,7 @@ function CourseCardImage({ src, alt }: { src: string; alt: string }) {
             <figure
                 className={cn(
                     'relative w-64 cursor-pointer overflow-hidden rounded-xl p-4',
-                    'bg-gray-950/[.01] hover:bg-gray-950/[.05]',
-                    'dark:bg-gray-50/[.10]',
-                    'transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none',
+                    'transform-gpu transition-all duration-300 ease-out',
                 )}
             >
                 <Image className="mx-auto" src={src} alt={alt} height={150} width={150} />
@@ -75,12 +77,38 @@ export default function CrosswalkGrid({
         }
     })
 
+    const numCourses = Object.keys(toggleState).reduce((acc, curr) => {
+        const selected = toggleState[curr]
+        return acc + (selected ? 1 : 0)
+    }, 0)
+
+    if (numCourses > 3) {
+        return (
+            <BentoGrid>
+                {courseCards.map((card, id) => {
+                    return (
+                        <BentoCard
+                            key={id}
+                            disabled
+                            compareMode={compareMode}
+                            checked={toggleState[card.name]}
+                            handleToggle={() =>
+                                handleToggleState({ ...toggleState, [card.name]: !toggleState[card.name] })
+                            }
+                            {...card}
+                        />
+                    )
+                })}
+            </BentoGrid>
+        )
+    }
     return (
         <BentoGrid>
             {courseCards.map((card, id) => {
                 return (
                     <BentoCard
                         key={id}
+                        disabled={false}
                         compareMode={compareMode}
                         checked={toggleState[card.name]}
                         handleToggle={() => handleToggleState({ ...toggleState, [card.name]: !toggleState[card.name] })}

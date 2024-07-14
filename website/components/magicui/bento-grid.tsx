@@ -18,6 +18,7 @@ const BentoCard = ({
     cta,
     compareMode,
     checked,
+    disabled,
     handleToggle,
 }: {
     name: string
@@ -29,6 +30,7 @@ const BentoCard = ({
     cta: string
     compareMode: boolean
     checked: boolean
+    disabled: boolean
     handleToggle: () => void
 }) => (
     <div
@@ -44,12 +46,25 @@ const BentoCard = ({
         {compareMode && (
             <>
                 <label
-                    onClick={handleToggle}
+                    onClick={() => {
+                        if (!disabled) {
+                            handleToggle()
+                            return
+                        }
+                        if (checked) {
+                            handleToggle()
+                            return
+                        }
+                    }}
                     htmlFor={name}
-                    className={cn(checked && 'bg-green-200/20', 'absolute z-10 h-full w-full')}
+                    className={cn(
+                        checked && 'bg-green-200/20',
+                        !checked && disabled && 'bg-gray-300/20',
+                        'absolute z-10 h-full w-full',
+                    )}
                 ></label>
-                <div className="absolute right-6 top-6 z-20">
-                    <Checkbox checked={checked} id={name} />
+                <div className="absolute left-6 top-6">
+                    <Checkbox className="h-6 w-6" checked={checked} id={name} />
                 </div>
             </>
         )}

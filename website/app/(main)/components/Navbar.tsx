@@ -37,18 +37,22 @@ export default function Navbar() {
     const pathname = usePathname()
 
     return (
-        <header className="md:px-6S sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4">
-            <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-8 md:text-sm lg:gap-10">
-                <Link href="/" className="flex items-center gap-2 text-lg font-semibold md:text-base">
-                    <Logo />
-                    <span className="sr-only">Rutgers University</span>
-                </Link>
+        <header className="md:px-6S sticky top-0 z-30 flex h-32 flex-col items-center justify-center gap-4 border-b bg-background px-4">
+            <div className="mx-auto">
+                <h1 className="text-center text-xl font-semibold">
+                    Middle School Introductory CS Curriculum Crosswalk
+                </h1>
+            </div>
+
+            <nav className="hidden flex-col items-center gap-6 text-lg font-medium md:flex md:flex-row md:gap-8 md:text-sm lg:gap-10">
                 {pages.map(({ title, href }) => (
                     <Link
                         href={href}
                         key={title}
                         className={cn(
-                            determineNavHighlight(href, pathname) ? 'text-foreground' : 'text-muted-foreground',
+                            determineNavHighlight(href, pathname)
+                                ? 'rounded-lg bg-gray-200/50 px-4 py-1 text-foreground'
+                                : 'text-muted-foreground',
                             'transition-colors hover:text-foreground',
                         )}
                     >

@@ -1,8 +1,9 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Rocket } from 'lucide-react'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Collapsible from './components/Collapsible'
 
 export const metadata: Metadata = {
     title: 'CS Curriculum Crosswalk | About',
@@ -11,53 +12,129 @@ export const metadata: Metadata = {
 
 function CurriculumCrosswalkCTA() {
     return (
-        <Alert className="w-2xl bg-red-50">
-            <Rocket className="h-4 w-4 !text-red-600" />
-            <AlertTitle className="text-red-800">Ready to research CS courses?</AlertTitle>
-            <AlertDescription className="mb-3 text-red-700">
-                Go to the Curriculum Crosswalk and compare CS courses now!
-            </AlertDescription>
-            <Link href="/curriculum-crosswalk">
-                <Button variant="outline">Let's Go</Button>
-            </Link>
-        </Alert>
+        <Card className="w-full max-w-2xl bg-blue-50">
+            <CardHeader>
+                <CardTitle className="text-blue-800">Ready to research CS courses?</CardTitle>
+                <CardDescription className="text-blue-700">
+                    Go to the Curriculum Crosswalk and compare CS courses now!
+                </CardDescription>
+            </CardHeader>
+            <CardFooter>
+                <Button variant="outline" className="w-full text-blue-700 hover:text-blue-800" asChild>
+                    <Link href="/curriculum-crosswalk">
+                        <Rocket className="mr-3 h-4 w-4" /> Let's Go
+                    </Link>
+                </Button>
+            </CardFooter>
+        </Card>
     )
 }
 
 const fields = [
-    'Curriculum URL: direct link to curriculum or provider’s webpage (note: single-clicking on the cell will open the link in your default browser)',
-    'Course Description: a brief description of each curriculum, as available from the provider',
-    'Suggested Grades: appropriate grade levels for curriculum use',
-    'Total Hours: total number of instructional hours, as reported by the curriculum provider or estimated based on available information',
-    'Price: the cost to a school/educator for classroom use of the curriculum',
-    'Platform: the method that students interact with curricular materials',
-    "Programming Language: the programming language that students learn through use of the curriculum, as applicable (Note: A course's programming language includes the [PP] flag to designate Proprietary Platform. This means that code written in this course, if copied and pasted into an external IDE, would not run without significant modifications or installations.)",
-    'Device Compatibility: devices supported for accessing the curriculum.',
-    'Auto-grading Capability: the extent to which the curriculum automatically grades student work',
-    'Course Lens: a brief explanation of the ways that computer science topics are explored and presented to students, such as through game design or storytelling',
-    'Standards Alignment: whether or not the curriculum aligns to computer science standards, as applicable ',
-    'Structure: the way that each curriculum is organized into lessons, activities, units, and the like',
-    'Sequencing: information on whether the curriculum must be followed in order or if there is flexibility in sequencing ',
-    '(Suggested) Sequencing Detail: suggested order of curricular materials',
-    'Lesson Structure: general structure/components of a class session, including what is made available to educators ',
-    'Training Available: professional learning opportunities available to educators to support curriculum implementation (from the provider only)',
-    'Funding Information: organizations or mechanisms by which the curriculum received funding for its development and/or maintenance',
-    'Date(s) Modified: the approximate year in which the curriculum was developed, and the frequency of updates or last update year, if relevant',
-    'Spotlight: an explanation of an innovative, creative, or otherwise important aspect of the curriculum ',
-    'Expert Take: thoughts from experienced CS faculty on the curriculum and its suitability in various settings',
-    'Course Summary: an attached document with a more detailed outline of each course, organized using each curriculum’s own structure',
+    {
+        title: 'Curriculum URL',
+        content:
+            'Direct link to curriculum or provider’s webpage (note: single-clicking on the cell will open the link in your default browser)',
+    },
+    {
+        title: 'Course Description',
+        content: 'A brief description of each curriculum, as available from the provider',
+    },
+    {
+        title: 'Suggested Grades',
+        content: 'Appropriate grade levels for curriculum use',
+    },
+    {
+        title: 'Total Hours',
+        content:
+            'Total number of instructional hours, as reported by the curriculum provider or estimated based on available information',
+    },
+    {
+        title: 'Price',
+        content: 'The cost to a school/educator for classroom use of the curriculum',
+    },
+    {
+        title: 'Platform',
+        content: 'The method that students interact with curricular materials',
+    },
+    {
+        title: 'Programming Language',
+        content: 'The method that students interact with curricular materials',
+    },
+    {
+        title: 'Platform',
+        content:
+            "The programming language that students learn through use of the curriculum, as applicable (Note: A course's programming language includes the [PP] flag to designate Proprietary Platform. This means that code written in this course, if copied and pasted into an external IDE, would not run without significant modifications or installations.)",
+    },
+    {
+        title: 'Device Compatibility',
+        content: 'Devices supported for accessing the curriculum',
+    },
+    {
+        title: 'Auto-grading Capability',
+        content: 'The extent to which the curriculum automatically grades student work',
+    },
+    {
+        title: 'Course Lens',
+        content:
+            'A brief explanation of the ways that computer science topics are explored and presented to students, such as through game design or storytelling',
+    },
+    {
+        title: 'Standards Alignment',
+        content: 'Whether or not the curriculum aligns to computer science standards, as applicable',
+    },
+    {
+        title: 'Structure',
+        content: 'The way that each curriculum is organized into lessons, activities, units, and the like',
+    },
+    {
+        title: 'Sequencing',
+        content:
+            'Information on whether the curriculum must be followed in order or if there is flexibility in sequencing',
+    },
+    {
+        title: '(Suggested) Sequencing Detail',
+        content: 'Suggested order of curricular materials',
+    },
+    {
+        title: 'Lesson Structure',
+        content: 'General structure/components of a class session, including what is made available to educators',
+    },
+    {
+        title: 'Training Available',
+        content:
+            'Professional learning opportunities available to educators to support curriculum implementation (from the provider only)',
+    },
+    {
+        title: 'Funding Information',
+        content:
+            'Organizations or mechanisms by which the curriculum received funding for its development and/or maintenance',
+    },
+    {
+        title: 'Date(s) Modified',
+        content:
+            'The approximate year in which the curriculum was developed, and the frequency of updates or last update year, if relevant',
+    },
+    {
+        title: 'Spotlight',
+        content: 'An explanation of an innovative, creative, or otherwise important aspect of the curriculum',
+    },
+    {
+        title: 'Expert Take',
+        content: 'Thoughts from experienced CS faculty on the curriculum and its suitability in various settings',
+    },
+    {
+        title: 'Course Summary',
+        content:
+            'An attached document with a more detailed outline of each course, organized using each curriculum’s own structure',
+    },
 ]
 
 export default async function Page() {
     return (
-        <main className="mb-6 mt-6 flex flex-1 flex-col items-center gap-3 p-4 lg:gap-6 lg:p-6">
-            <div className="mx-auto">
-                <h1 className="text-xl font-semibold md:text-3xl">
-                    Middle School Introductory CS Curriculum Crosswalk
-                </h1>
-            </div>
+        <main className="mb-6 mt-6 flex flex-1 flex-col items-center gap-3 space-y-6 p-4 lg:gap-6 lg:p-6">
             <div className="w-2xl max-w-2xl">
-                <h2 className="text text-xl font-semibold">Introduction</h2>
+                <h2 className="text text-2xl font-semibold">Introduction</h2>
                 <p className="mt-3 text-base text-muted-foreground">
                     Finding the right introductory computer science curriculum for middle school students is crucial for
                     educators. The Rutgers Middle School Introductory CS Curriculum Crosswalk has been developed to
@@ -75,8 +152,7 @@ export default async function Page() {
                     goals.
                 </p>
             </div>
-            <div className="w-2xl max-w-2xl">
-                <h2 className="text text-xl font-semibold">Curriculum Selection & Review Methodology</h2>
+            <Collapsible header="Curriculum Selection & Review Methodology">
                 <p className="mt-3 text-base text-muted-foreground">
                     The selection of curricula for this tool was guided by a comprehensive web search targeting middle
                     school computer science course curricula. The top 200 search results were considered, which were
@@ -91,29 +167,29 @@ export default async function Page() {
                     information presented in the tool was derived from documents or lesson plans publicly available
                     online, with reasonable assumptions made based on the documentation available.
                 </p>
-            </div>
-            <div className="w-2xl max-w-2xl">
-                <h2 className="text text-xl font-semibold">Explanation of Fields</h2>
-                <p className="mt-3 text-base text-muted-foreground"></p>
-                <p className="mt-3 text-base text-muted-foreground">
-                    Brief descriptions of each field contained in the Curriculum Crosswalk table are listed below.
-                </p>
-                <ul className="mt-3 flex list-disc flex-col gap-2">
-                    {fields.map((field, id) => {
-                        return (
-                            <li key={id} className="text-muted-foreground">
-                                {field}
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
-            <div className="w-2xl my-3 max-w-2xl">
+            </Collapsible>
+            <Collapsible header="Explanation of Fields">
+                <>
+                    <p className="mt-3 text-base text-muted-foreground">
+                        Brief descriptions of each field contained in the Curriculum Crosswalk table are listed below.
+                    </p>
+                    <ul className="mt-3 flex list-inside list-disc flex-col gap-2">
+                        {fields.map((field, id) => {
+                            return (
+                                <li key={id} className="text-muted-foreground">
+                                    <span className="font-semibold">{field.title}:</span> {field.content}
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </>
+            </Collapsible>
+            <div className="my-3 w-full max-w-2xl">
                 <CurriculumCrosswalkCTA />
             </div>
 
             <div className="w-2xl max-w-2xl">
-                <h2 className="text text-xl font-semibold">Disclaimer</h2>
+                <h2 className="text text-2xl font-semibold">Disclaimer</h2>
                 <p className="mt-3 text-base text-muted-foreground"></p>
                 <p className="mt-3 text-base text-muted-foreground">
                     Although careful efforts were made in gathering and reviewing publicly available information and

@@ -8,39 +8,39 @@ import { CourseCardDescription } from '../../components/CrosswalkGrid'
 export default function CompareCard({ course }: { course: CourseReview }) {
     const compareCardFields = [
         {
-            title: 'Platform:',
+            title: 'Platform',
             content: course.platform,
         },
         {
-            title: 'Programming Language:',
+            title: 'Programming Language',
             content: course.programming_language,
         },
         {
-            title: 'Device Compatibility:',
+            title: 'Device Compatibility',
             content: course.device_compatibility,
         },
         {
-            title: 'Auto-Grading Availability:',
+            title: 'Auto-Grading Availability',
             content: course.auto_grading_availability,
         },
         {
-            title: 'Standards Alignment:',
+            title: 'Standards Alignment',
             content: course.CSTA_standards,
         },
         {
-            title: 'Sequencing:',
+            title: 'Sequencing',
             content: course.sequencing,
         },
         {
-            title: 'Training Available:',
+            title: 'Training Available',
             content: course.training_info,
         },
         {
-            title: 'Funding Information:',
+            title: 'Funding Information',
             content: course.funding_info,
         },
         {
-            title: 'Date Modified:',
+            title: 'Date Modified',
             content: course.date_modified,
         },
     ]

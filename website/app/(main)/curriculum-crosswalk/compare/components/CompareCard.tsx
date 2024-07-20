@@ -1,4 +1,3 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { CourseReview } from '@/types'
@@ -48,39 +47,37 @@ export default function CompareCard({ course }: { course: CourseReview }) {
 
     return (
         <Card className="flex w-96 shrink-0 flex-col text-wrap">
-            <CardHeader className="flex-1">
-                <div>
-                    <Image
-                        className="mb-3 h-12 w-auto"
-                        src={course.image_url}
-                        alt={course.title}
-                        height={150}
-                        width={150}
-                    />
-                    <CardTitle className="text-xl">{course.title}</CardTitle>
-                </div>
-                <CardDescription>{course.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-3">
-                <div className="h-24">
-                    <CourseCardDescription
-                        suggestedGrades={course.suggested_grades}
-                        totalHours={course.total_hours}
-                        price={course.price}
-                    />
-                </div>
-
-                <Accordion type="multiple">
-                    {compareCardFields.map((field, id) => {
-                        return (
-                            <AccordionItem value={field.title}>
-                                <AccordionTrigger>{field.title}</AccordionTrigger>
-                                <AccordionContent>{field.content}</AccordionContent>
-                            </AccordionItem>
-                        )
-                    })}
-                </Accordion>
-            </CardContent>
+            <div className="flex flex-1 flex-col">
+                <CardHeader className="flex-1">
+                    <div>
+                        <Image
+                            className="mb-3 h-12 w-auto"
+                            src={course.image_url}
+                            alt={course.title}
+                            height={150}
+                            width={150}
+                        />
+                        <CardTitle className="text-xl">{course.title}</CardTitle>
+                    </div>
+                    <CardDescription>{course.description}</CardDescription>
+                    <div className="h-24">
+                        <CourseCardDescription
+                            suggestedGrades={course.suggested_grades}
+                            totalHours={course.total_hours}
+                            price={course.price}
+                        />
+                    </div>
+                </CardHeader>
+                <CardContent className="flex h-full flex-col gap-3">
+                    <div>
+                        <div className="space-y-8">
+                            {compareCardFields.map((field, id) => {
+                                return <DescriptionField key={id} title={field.title} content={field.content} />
+                            })}
+                        </div>
+                    </div>
+                </CardContent>
+            </div>
 
             <CardFooter className="w-full">
                 <Button className="w-full" variant={'outline'} asChild>

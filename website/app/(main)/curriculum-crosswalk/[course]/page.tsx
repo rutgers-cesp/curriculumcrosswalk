@@ -29,58 +29,58 @@ export default async function Page({ params }: { params: { course: string } }) {
 
     const courseSections = [
         {
-            title: 'Platform:',
+            title: 'Platform',
             content: courseData.platform,
         },
         {
-            title: 'Programming Language:',
+            title: 'Programming Language',
             content: courseData.programming_language,
         },
         {
-            title: 'Device Compatibility:',
+            title: 'Device Compatibility',
             content: courseData.device_compatibility,
         },
         {
-            title: 'Auto-Grading Availability:',
+            title: 'Auto-Grading Availability',
             content: courseData.auto_grading_availability,
         },
         {
-            title: 'Date Modified:',
+            title: 'Date Modified',
             content: courseData.date_modified,
         },
         {
-            title: 'Funding Information:',
+            title: 'Funding Information',
             content: courseData.funding_info,
         },
         {
-            title: 'Lesson Structure:',
+            title: 'Lesson Structure',
             content: courseData.lesson_structure,
         },
     ]
 
     const longCourseSections = [
         {
-            title: 'Course "Lens":',
+            title: 'Course "Lens"',
             content: courseData.course_lens,
         },
         {
-            title: 'Standards Alignment:',
+            title: 'Standards Alignment',
             content: courseData.CSTA_standards,
         },
         {
-            title: 'Structure:',
+            title: 'Structure',
             content: courseData.course_structure,
         },
         {
-            title: 'Training Available:',
+            title: 'Training Available',
             content: courseData.training_info,
         },
         {
-            title: 'Spotlight:',
+            title: 'Spotlight',
             content: courseData.spotlight,
         },
         {
-            title: 'Expert Take:',
+            title: 'Expert Take',
             content: courseData.expert_take,
         },
     ]
@@ -103,7 +103,7 @@ export default async function Page({ params }: { params: { course: string } }) {
                     without significant modifications or installations.
                 </p>
             </div>
-            <div className="flex flex-col gap-3 md:flex-row">
+            <div className="flex flex-col gap-3 md:flex-row md:justify-center">
                 <div className="flex gap-3 md:flex-col">
                     <Card className="flex h-60 flex-col xs:w-60">
                         <div className="flex flex-1 items-center justify-center">
@@ -134,7 +134,7 @@ export default async function Page({ params }: { params: { course: string } }) {
                     </Card>
                 </div>
 
-                <Card className="w-full">
+                <Card className="w-full max-w-3xl">
                     <CardHeader className="space-y-6">
                         <CardTitle className="text-wrap text-left text-2xl">{courseData.title}</CardTitle>
                         <CardDescription className="text-base">
@@ -147,21 +147,21 @@ export default async function Page({ params }: { params: { course: string } }) {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="flex flex-col gap-3 lg:mt-6 lg:w-[600px] lg:gap-8">
+                        <div className="mt-6 flex flex-col gap-8">
                             {courseSections.map((section, id) => {
                                 return <CourseSection key={id} title={section.title} content={section.content} />
                             })}
                         </div>
                     </CardContent>
                     <CardFooter className="flex flex-col gap-6 bg-gray-500/5 pt-8">
-                        <SmallCollapsible header="Course Sequencing: ">
+                        <SmallCollapsible header="Course Sequencing">
                             <p className="mt-3 max-w-2xl text-base text-muted-foreground">
                                 <span className="font-medium">Note: </span>
                                 {courseData.sequencing}
                             </p>
                             <div className="mt-3 max-w-2xl text-base text-muted-foreground">
                                 {splitOrderedListString(courseData.sequencing_details).map((listItem, id) => {
-                                    return <p>{listItem}</p>
+                                    return <p key={id}>{listItem}</p>
                                 })}
                             </div>
                         </SmallCollapsible>
@@ -173,14 +173,6 @@ export default async function Page({ params }: { params: { course: string } }) {
                                 </SmallCollapsible>
                             )
                         })}
-                        {/* {
-            title: 'Sequencing:',
-            content: ,
-        },
-        {
-            title: 'Suggested Sequencing Detail:',
-            content: courseData.sequencing_details,
-        }, */}
                     </CardFooter>
                 </Card>
             </div>

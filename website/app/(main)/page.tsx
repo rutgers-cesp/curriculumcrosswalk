@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Rocket } from 'lucide-react'
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import Collapsible from './components/Collapsible'
 
@@ -134,6 +135,14 @@ export default async function Page() {
     return (
         <main className="mb-6 mt-6 flex flex-1 flex-col items-center gap-3 space-y-6 p-4 lg:gap-6 lg:p-6">
             <div className="w-2xl max-w-2xl">
+                <Image
+                    src="/images/curriculum-crosswalk-banner.png"
+                    alt="Rutgers U Curriculum Crosswalk"
+                    width={4001}
+                    height={1030}
+                />
+            </div>
+            <div className="w-2xl max-w-2xl">
                 <h2 className="text text-2xl font-semibold">Introduction</h2>
                 <p className="mt-3 text-base text-muted-foreground">
                     Finding the right introductory computer science curriculum for middle school students is crucial for
@@ -190,13 +199,13 @@ export default async function Page() {
 
             <div className="w-2xl max-w-2xl">
                 <h2 className="text text-2xl font-semibold">Disclaimer</h2>
-                <p className="mt-3 text-base text-muted-foreground"></p>
                 <p className="mt-3 text-base text-muted-foreground">
                     Although careful efforts were made in gathering and reviewing publicly available information and
                     artifacts, we cannot guarantee the accuracy of all content within this tool as information and
                     available documentation may change over time. Reasonable measures were taken in interpreting
                     available materials, though we encourage users to verify information central to their use cases.
                 </p>
+                <p className="mt-3 text-base text-muted-foreground">Last updated at 4/16/2024.</p>
             </div>
         </main>
     )

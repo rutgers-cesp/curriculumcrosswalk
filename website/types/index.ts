@@ -17,7 +17,11 @@ export interface CourseReview {
     training_info: string
     funding_info: string
     date_modified: string
+    spotlight_header: string
     spotlight: string
+    spotlight_great?: string
+    honorable_mention_header?: string
+    honorable_mention?: string
     expert_take: string
     course_url: string
     image_url: string

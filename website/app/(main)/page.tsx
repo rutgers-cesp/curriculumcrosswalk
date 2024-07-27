@@ -33,11 +33,6 @@ function CurriculumCrosswalkCTA() {
 
 const fields = [
     {
-        title: 'Curriculum URL',
-        content:
-            'Direct link to curriculum or provider’s webpage (note: single-clicking on the cell will open the link in your default browser)',
-    },
-    {
         title: 'Course Description',
         content: 'A brief description of each curriculum, as available from the provider',
     },
@@ -60,12 +55,12 @@ const fields = [
     },
     {
         title: 'Programming Language',
-        content: 'The method that students interact with curricular materials',
+        content:
+            "The programming language that students learn through use of the curriculum, as applicable (Note: A course's programming language includes the [PP] flag to designate Proprietary Platform. This means that code written in this course, if copied and pasted into an external IDE, would not run without significant modifications or installations.)",
     },
     {
         title: 'Platform',
-        content:
-            "The programming language that students learn through use of the curriculum, as applicable (Note: A course's programming language includes the [PP] flag to designate Proprietary Platform. This means that code written in this course, if copied and pasted into an external IDE, would not run without significant modifications or installations.)",
+        content: 'The method that students interact with curricular materials',
     },
     {
         title: 'Device Compatibility',
@@ -147,9 +142,9 @@ export default async function Page() {
                 <p className="mt-3 text-base text-muted-foreground">
                     Finding the right introductory computer science curriculum for middle school students is crucial for
                     educators. The Rutgers Middle School Introductory CS Curriculum Crosswalk has been developed to
-                    simplify this process by providing detailed information on nine different curricula. This tool helps
-                    teachers by presenting key facts about each option, including how computer science is taught,
-                    whether through games, storytelling, or other engaging methods.
+                    simplify this process by providing detailed information on eight different curricula. This tool
+                    helps teachers by presenting key facts about each option, including its approach to teaching
+                    computer science, whether through games, storytelling, or other engaging methods.
                 </p>
                 <p className="mt-3 text-base text-muted-foreground">
                     The crosswalk offers a clear course description from each curriculum provider, access to their
@@ -160,7 +155,12 @@ export default async function Page() {
                     what each one offers, and decide which is best suited to their students' needs and their teaching
                     goals.
                 </p>
+                <p className="mt-3 text-base italic text-muted-foreground">Last updated on 4/16/2024.</p>
             </div>
+            <div className="my-3 w-full max-w-2xl">
+                <CurriculumCrosswalkCTA />
+            </div>
+
             <Collapsible header="Curriculum Selection & Review Methodology">
                 <p className="mt-3 text-base text-muted-foreground">
                     The selection of curricula for this tool was guided by a comprehensive web search targeting middle
@@ -193,10 +193,6 @@ export default async function Page() {
                     </ul>
                 </>
             </Collapsible>
-            <div className="my-3 w-full max-w-2xl">
-                <CurriculumCrosswalkCTA />
-            </div>
-
             <div className="w-2xl max-w-2xl">
                 <h2 className="text text-2xl font-semibold">Disclaimer</h2>
                 <p className="mt-3 text-base text-muted-foreground">
@@ -205,7 +201,6 @@ export default async function Page() {
                     available documentation may change over time. Reasonable measures were taken in interpreting
                     available materials, though we encourage users to verify information central to their use cases.
                 </p>
-                <p className="mt-3 text-base text-muted-foreground">Last updated at 4/16/2024.</p>
             </div>
         </main>
     )

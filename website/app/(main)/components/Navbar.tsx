@@ -39,9 +39,7 @@ export default function Navbar() {
     return (
         <header className="md:px-6S sticky top-0 z-30 flex h-32 flex-col items-center justify-center gap-4 border-b bg-background px-4">
             <div className="mx-auto">
-                <h1 className="text-center text-xl font-semibold">
-                    Middle School Introductory CS Curriculum Crosswalk
-                </h1>
+                <h1 className="text-center text-xl font-semibold">Rutgers MS CS Crosswalk</h1>
             </div>
 
             <nav className="hidden flex-col items-center gap-6 text-lg font-medium md:flex md:flex-row md:gap-8 md:text-sm lg:gap-10">

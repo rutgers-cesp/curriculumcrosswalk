@@ -1,8 +1,9 @@
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { CourseReview } from '@/types'
 import { readFile } from 'fs/promises'
-import { Paperclip, SquareArrowOutUpRight, Undo2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Paperclip, SquareArrowOutUpRight, Undo2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CourseCardDescription } from '../components/CrosswalkGrid'
@@ -20,12 +21,20 @@ export default async function Page({ params }: { params: { course: string } }) {
     const courseTitle = decodeURIComponent(params.course)
     const res = await readFile('public/data/curriculum_crosswalk.json', 'utf8')
     const data: CourseReview[] = JSON.parse(res)
+    data.sort((a, b) => a.title.localeCompare(b.title))
 
     const courseData = data.find((course) => course.title === courseTitle)
 
     if (!courseData) {
         throw new Error('Sorry, something went wrong!')
     }
+
+    const index = data.indexOf(courseData)
+    const prevIndex = index - 1 >= 0 ? index - 1 : data.length - 1
+    const nextIndex = index + 1 < data.length ? index + 1 : 0
+
+    const prevTitle = data[prevIndex].title
+    const nextTitle = data[nextIndex].title
 
     const courseSections = [
         {
@@ -77,7 +86,37 @@ export default async function Page({ params }: { params: { course: string } }) {
         },
         {
             title: 'Spotlight',
-            content: courseData.spotlight,
+            content: (
+                <div>
+                    <div className="mb-6">
+                        <div className="mb-3 flex items-center gap-3">
+                            <span className="font-medium">Spotlight: </span>
+                            <Badge className="bg-yellow-400 text-foreground hover:bg-yellow-400">
+                                {courseData.spotlight_header}
+                            </Badge>
+                        </div>
+
+                        <p>{courseData.spotlight}</p>
+                    </div>
+                    {courseData.honorable_mention && (
+                        <div className="mb-6">
+                            <div className="mb-3 flex items-center gap-3">
+                                <span className="font-medium">Honorable Mention: </span>
+                                <Badge className="bg-green-300 text-foreground hover:bg-green-300">
+                                    {courseData.honorable_mention_header}
+                                </Badge>
+                            </div>
+                            <p>{courseData.honorable_mention}</p>
+                        </div>
+                    )}
+                    {courseData.spotlight_great && (
+                        <div>
+                            <span className="font-medium">What makes it great: </span>
+                            <p className="mt-3">{courseData.spotlight_great}</p>
+                        </div>
+                    )}
+                </div>
+            ),
         },
         {
             title: 'Expert Take',
@@ -169,12 +208,28 @@ export default async function Page({ params }: { params: { course: string } }) {
                         {longCourseSections.map((section, id) => {
                             return (
                                 <SmallCollapsible key={id} header={section.title}>
-                                    <p className="mt-3 max-w-2xl text-base text-muted-foreground">{section.content}</p>
+                                    <div className="mt-3 max-w-2xl text-base text-muted-foreground">
+                                        {section.content}
+                                    </div>
                                 </SmallCollapsible>
                             )
                         })}
                     </CardFooter>
                 </Card>
+            </div>
+            <div className="mb-3 mt-3 flex flex-col justify-between gap-3 xs:mt-6 xs:flex-row xs:gap-0">
+                <Link href={`/curriculum-crosswalk/${encodeURIComponent(prevTitle)}`}>
+                    <Button variant="secondary" className="w-full xs:w-fit xs:min-w-40">
+                        <ArrowLeft className="mr-3 h-4 w-4" />
+                        Previous Course
+                    </Button>
+                </Link>
+                <Link href={`/curriculum-crosswalk/${encodeURIComponent(nextTitle)}`}>
+                    <Button variant="secondary" className="w-full xs:w-fit xs:min-w-40">
+                        Next Course
+                        <ArrowRight className="ml-3 h-4 w-4" />
+                    </Button>
+                </Link>
             </div>
         </main>
     )
@@ -184,7 +239,7 @@ function CourseSection({ title, content }: { title: string; content: string }) {
     return (
         <div key={title} className="flex flex-col justify-between lg:flex-row">
             <h3 className="text-wrap text-lg font-medium md:text-xl">{title}</h3>
-            <p className="mt-1 w-72 text-wrap text-muted-foreground">{content}</p>
+            <p className="mt-1 w-full text-wrap text-muted-foreground lg:w-96">{content}</p>
         </div>
     )
 }

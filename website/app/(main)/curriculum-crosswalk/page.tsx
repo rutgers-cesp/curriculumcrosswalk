@@ -1,3 +1,4 @@
+import { CourseReview } from '@/types'
 import { readFile } from 'fs/promises'
 import { Metadata } from 'next'
 import ToggleGrid from './components/ToggleGrid'
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 
 export default async function Page() {
     const res = await readFile('public/data/curriculum_crosswalk.json', 'utf8')
-    const data = JSON.parse(res)
+    const data: CourseReview[] = JSON.parse(res)
+    data.sort((a, b) => a.title.localeCompare(b.title))
+
     return (
         <main className="flex flex-1 flex-col gap-3 p-4 lg:gap-6 lg:p-6">
             <div className="mb-3 mt-6">

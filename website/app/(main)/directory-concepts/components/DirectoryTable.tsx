@@ -78,7 +78,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                         <TableRow>
                             <TableHead>Curriculum</TableHead>
                             {columns.map((title, id) => (
-                                <TableHead className="min-w-32 text-center" key={id}>
+                                <TableHead className="w-32 min-w-32 text-center" key={id}>
                                     {title}
                                 </TableHead>
                             ))}
@@ -89,7 +89,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                             const sectionData = rows[sectionTitle]
                             return (
                                 <TableRow key={id}>
-                                    <TableCell className="w-64 text-lg font-medium">{sectionTitle}</TableCell>
+                                    <TableCell className="w-64 min-w-64 text-lg font-medium">{sectionTitle}</TableCell>
                                     {sectionData.map((data, idx) => (
                                         <TableCell key={idx} className="font-medium">
                                             <div className="mx-auto w-fit">{data === null || <CheckMark />}</div>
@@ -118,7 +118,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                         <TableHead>Curriculum</TableHead>
 
                         {columns.map((title, id) => (
-                            <TableHead className="min-w-32 text-center" key={id}>
+                            <TableHead className="w-32 min-w-32 text-center" key={id}>
                                 {title}
                             </TableHead>
                         ))}
@@ -129,7 +129,7 @@ export default function DirectoryTable({ section, sectionTitle }: { section: Dir
                         const sectionData = rows[sectionTitle]
                         return (
                             <TableRow key={id}>
-                                <TableCell className="w-64 text-lg font-medium">{sectionTitle}</TableCell>
+                                <TableCell className="w-64 min-w-64 text-lg font-medium">{sectionTitle}</TableCell>
                                 {sectionData.map((data, idx) => {
                                     if (idx === 4) {
                                         return (

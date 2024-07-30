@@ -59,10 +59,6 @@ const fields = [
             "The programming language that students learn through use of the curriculum, as applicable (Note: A course's programming language includes the [PP] flag to designate Proprietary Platform. This means that code written in this course, if copied and pasted into an external IDE, would not run without significant modifications or installations.)",
     },
     {
-        title: 'Platform',
-        content: 'The method that students interact with curricular materials',
-    },
-    {
         title: 'Device Compatibility',
         content: 'Devices supported for accessing the curriculum',
     },
